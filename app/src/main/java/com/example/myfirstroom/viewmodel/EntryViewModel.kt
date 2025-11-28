@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.myfirstroom.repositori.RepositoriSiswa
 
-class EntryViewModel(private val repositoriSiswa: RepositoriSiswa) : ViewModel(){
+class EntryViewModel(private val repositoriSiswa: RepositoriSiswa) : ViewModel() {
     /**
      * Berisi status Siswa saat ini
      */
@@ -28,3 +28,14 @@ class EntryViewModel(private val repositoriSiswa: RepositoriSiswa) : ViewModel()
             isEntryValid = validasiInput(detailSiswa)
         )
     }
+
+
+    /**
+     * Fungsi untuk menyimpan data yang di-entry
+     */
+    suspend fun saveSiswa() {
+        if (validasiInput()) {
+            repositoriSiswa.insertSiswa(uiStateSiswa.detailSiswa.toSiswa())
+        }
+    }
+}
