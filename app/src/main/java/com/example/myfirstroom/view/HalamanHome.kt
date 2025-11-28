@@ -1,6 +1,6 @@
 package com.example.myfirstroom.view
 
-import com.example.myfirstroom.R
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -36,6 +36,7 @@ import com.example.myfirstroom.viewmodel.HomeViewModel
 import com.example.myfirstroom.viewmodel.provider.PenyediaViewModel
 import com.example.myfirstroom.view.route.DestinasiHome
 import com.example.myfirstroom.room.Siswa
+import com.example.myfirstroom.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

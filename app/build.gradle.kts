@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.ksp)
+    alias(libs.plugins.ksp) // Pastikan plugin ini tidak merah
 }
 
 android {
@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.myfirstroom"
-        minSdk = 24
+        minSdk = 29
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -50,15 +50,20 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.navigation.compose)
     implementation(libs.compose.icons)
-    //Room
-    implementation(libs.bundles.room)
-    ksp(libs.room.compiler)
-    //ViewModel
+
+    // --- PERBAIKAN DI SINI ---
+    implementation(libs.bundles.room) // Ini hanya Runtime
+
+    // WAJIB ADA BARIS INI UNTUK MEMBUAT DATABASE:
+    // Saya hardcode versinya agar pasti jalan.
+    // Jika nanti Anda punya "libs.room.compiler", bisa diganti jadi ksp(libs.room.compiler)
+    ksp("androidx.room:room-compiler:2.6.1")
+    // -------------------------
+
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.lifecycle.runtime.compose)
-    // Navigasi
+
     implementation(libs.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

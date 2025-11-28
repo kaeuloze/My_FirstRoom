@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.myfirstroom.repositori.RepositoriSiswa
+import com.example.myfirstroom.room.Siswa
 
 class EntryViewModel(private val repositoriSiswa: RepositoriSiswa) : ViewModel() {
     /**
@@ -67,4 +68,11 @@ fun com.example.myfirstroom.viewmodel.DetailSiswa.toSiswa(): Siswa = Siswa(
 fun Siswa.toUiStateSiswa(isEntryValid: Boolean = false): com.example.myfirstroom.viewmodel.UIStateSiswa = UIStateSiswa(
     detailSiswa = this.toDetailSiswa(),
     isEntryValid = isEntryValid
+)
+
+fun Siswa.toDetailSiswa(): com.example.myfirstroom.viewmodel.DetailSiswa = DetailSiswa(
+    id = id,
+    nama = nama,
+    alamat = alamat,
+    telpon = telpon
 )
