@@ -13,7 +13,7 @@ import androidx.room.RoomDatabase
 
 abstract class DatabaseSiswa : RoomDatabase() {
 
-    abstract fun siswaData(): SiswaData
+    abstract fun siswaDao(): SiswaDao
 
     companion object {
         @Volatile
