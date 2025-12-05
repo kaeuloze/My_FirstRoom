@@ -33,7 +33,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.room.Update
 import com.example.myfirstroom.viewmodel.HomeViewModel
 import com.example.myfirstroom.viewmodel.provider.PenyediaViewModel
 import com.example.myfirstroom.view.route.DestinasiHome
@@ -77,7 +76,7 @@ fun HomeScreen(
         val uiStateSiswa by viewModel.homeUiState.collectAsState()
         BodyHome(
             itemSiswa = uiStateSiswa.listSiswa,
-            onSiswaClick = navigateToItemUpdate,
+            onSiswaClick = navigateToItemUpdate ,
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
