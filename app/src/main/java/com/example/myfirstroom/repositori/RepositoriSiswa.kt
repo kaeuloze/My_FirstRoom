@@ -8,6 +8,11 @@ interface RepositoriSiswa {
     fun getAllSiswaStream(): Flow<List<Siswa>>
 
     suspend fun insertSiswa(siswa: Siswa)
+
+    //edit 1 : tambah fungsi
+    fun getAllSiswaStream(id: Int): Flow<Siswa>
+    suspend fun deleteSiswa(siswa: Siswa)
+    suspend fun updateSiswa(siswa: Siswa)
 }
 
 class OfflineRepositoriSiswa(
